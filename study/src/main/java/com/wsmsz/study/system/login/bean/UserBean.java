@@ -1,5 +1,7 @@
 package com.wsmsz.study.system.login.bean;
 
+import com.wsmsz.study.utils.ResponsUtil.PageUtil;
+
 import java.io.Serializable;
 
 /**
@@ -23,7 +25,19 @@ public class UserBean implements Serializable {
 
     private int userRole;
 
+    private int userState;
+
     private String userDesc;
+
+    private PageUtil page;
+
+    public int getUserState() {
+        return userState;
+    }
+
+    public void setUserState(int userState) {
+        this.userState = userState;
+    }
 
     public int getUserId() {
         return userId;
@@ -79,5 +93,13 @@ public class UserBean implements Serializable {
 
     public void setUserDesc(String userDesc) {
         this.userDesc = userDesc;
+    }
+
+    public PageUtil getPage() {
+        return page;
+    }
+
+    public void setPage(PageUtil page) {
+        this.page = page;
     }
 }

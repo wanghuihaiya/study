@@ -7,3 +7,8 @@ spring:
     prefix: classpath:/templates/
     mode: HTML5
     encoding: utf-8
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
