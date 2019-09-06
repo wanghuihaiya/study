@@ -20,24 +20,26 @@
     </insert>
     <update id="updateUser" parameterType="com.wsmsz.study.system.login.bean.UserBean">
         UPDATE T_WSMSZ_USER SAT
-        <if test="userName != null and userName != ''">
-            USER_NAME = #{userName},
-        </if>
-        <if test="userPassword != null and userPassword != ''">
-            USER_PASSWORD = #{userPassword},
-        </if>
-        <if test="userSex != null and userSex != ''">
-            USER_SEX = #{userSex},
-        </if>
-        <if test="userPhone != null and userPhone != ''">
-            USER_PHONE = #{userPhone},
-        </if>
-        <if test="userRole != null and userRole != ''">
-            USER_ROLE = #{userRole},
-        </if>
-        <if test="userState != null and userState != ''">
-            USER_STATE = #{userState},
-        </if>
+        <set>
+            <if test="userName != null and userName != ''">
+                USER_NAME = #{userName},
+            </if>
+            <if test="userPassword != null and userPassword != ''">
+                USER_PASSWORD = #{userPassword},
+            </if>
+            <if test="userSex != null and userSex != ''">
+                USER_SEX = #{userSex},
+            </if>
+            <if test="userPhone != null and userPhone != ''">
+                USER_PHONE = #{userPhone},
+            </if>
+            <if test="userRole != null and userRole != ''">
+                USER_ROLE = #{userRole},
+            </if>
+            <if test="userState != null and userState != ''">
+                USER_STATE = #{userState},
+            </if>
+        </set>
         WHERE ID = #{userId}
     </update>
     <delete id="deleteUser" parameterType="com.wsmsz.study.system.login.bean.UserBean">

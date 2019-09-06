@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wsmsz.study.system.mune.mapper.MuneMapper" >
+  <resultMap id="BaseResultMap" type="com.wsmsz.study.system.mune.bean.Mune" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="MUNE_NAME" property="muneName" jdbcType="VARCHAR" />
+    <result column="MUNE_PID" property="munePid" jdbcType="INTEGER" />
+    <result column="MUNE_URL" property="muneUrl" jdbcType="VARCHAR" />
+    <result column="MUNE_IMG" property="muneImg" jdbcType="VARCHAR" />
+    <result column="MUNE_DESC" property="muneDesc" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, MUNE_NAME, MUNE_PID, MUNE_URL, MUNE_IMG, MUNE_DESC
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_wsmsz_mune
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_wsmsz_mune
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wsmsz.study.system.mune.bean.Mune" >
+    insert into t_wsmsz_mune (ID, MUNE_NAME, MUNE_PID, 
+      MUNE_URL, MUNE_IMG, MUNE_DESC
+      )
+    values (#{id,jdbcType=INTEGER}, #{muneName,jdbcType=VARCHAR}, #{munePid,jdbcType=INTEGER}, 
+      #{muneUrl,jdbcType=VARCHAR}, #{muneImg,jdbcType=VARCHAR}, #{muneDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wsmsz.study.system.mune.bean.Mune" >
+    insert into t_wsmsz_mune
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="muneName != null" >
+        MUNE_NAME,
+      </if>
+      <if test="munePid != null" >
+        MUNE_PID,
+      </if>
+      <if test="muneUrl != null" >
+        MUNE_URL,
+      </if>
+      <if test="muneImg != null" >
+        MUNE_IMG,
+      </if>
+      <if test="muneDesc != null" >
+        MUNE_DESC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="muneName != null" >
+        #{muneName,jdbcType=VARCHAR},
+      </if>
+      <if test="munePid != null" >
+        #{munePid,jdbcType=INTEGER},
+      </if>
+      <if test="muneUrl != null" >
+        #{muneUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="muneImg != null" >
+        #{muneImg,jdbcType=VARCHAR},
+      </if>
+      <if test="muneDesc != null" >
+        #{muneDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wsmsz.study.system.mune.bean.Mune" >
+    update t_wsmsz_mune
+    <set >
+      <if test="muneName != null" >
+        MUNE_NAME = #{muneName,jdbcType=VARCHAR},
+      </if>
+      <if test="munePid != null" >
+        MUNE_PID = #{munePid,jdbcType=INTEGER},
+      </if>
+      <if test="muneUrl != null" >
+        MUNE_URL = #{muneUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="muneImg != null" >
+        MUNE_IMG = #{muneImg,jdbcType=VARCHAR},
+      </if>
+      <if test="muneDesc != null" >
+        MUNE_DESC = #{muneDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wsmsz.study.system.mune.bean.Mune" >
+    update t_wsmsz_mune
+    set MUNE_NAME = #{muneName,jdbcType=VARCHAR},
+      MUNE_PID = #{munePid,jdbcType=INTEGER},
+      MUNE_URL = #{muneUrl,jdbcType=VARCHAR},
+      MUNE_IMG = #{muneImg,jdbcType=VARCHAR},
+      MUNE_DESC = #{muneDesc,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

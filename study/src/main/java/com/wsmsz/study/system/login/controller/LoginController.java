@@ -81,6 +81,7 @@ public class LoginController {
         try {
             this.loginService.updateUser(userBean);
         }catch (Exception e){
+            e.printStackTrace();
             return BaseResponse.error("用户修改失败");
         }
         return BaseResponse.success("用户修改成功！");
