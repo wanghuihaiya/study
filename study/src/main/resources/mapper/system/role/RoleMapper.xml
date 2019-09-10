@@ -79,4 +79,15 @@
       ROLE_DESC = #{roleDesc,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectRoleAll" parameterType="com.wsmsz.study.system.role.bean.Role" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"></include> from t_wsmsz_role  tr
+    <where>
+      <if test="roleName != null and roleName != ''">
+        and tr.ROLE_NAME like concat('%',#{roleName},'%')
+      </if>
+      <if test="roleState != null and roleState != ''">
+        and tr.ROLE_STATE = #{roleState}
+      </if>
+    </where>
+  </select>
 </mapper>

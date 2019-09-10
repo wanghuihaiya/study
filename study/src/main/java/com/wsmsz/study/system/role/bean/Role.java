@@ -1,5 +1,7 @@
 package com.wsmsz.study.system.role.bean;
 
+import com.wsmsz.study.utils.ResponsUtil.PageUtil;
+
 public class Role {
     private Integer id;
 
@@ -8,6 +10,8 @@ public class Role {
     private String roleState;
 
     private String roleDesc;
+
+    private PageUtil pageUtil;
 
     public Integer getId() {
         return id;
@@ -39,5 +43,13 @@ public class Role {
 
     public void setRoleDesc(String roleDesc) {
         this.roleDesc = roleDesc == null ? null : roleDesc.trim();
+    }
+
+    public PageUtil getPageUtil() {
+        return pageUtil;
+    }
+
+    public void setPageUtil(PageUtil pageUtil) {
+        this.pageUtil = pageUtil;
     }
 }

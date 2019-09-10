@@ -1,12 +1,11 @@
-package com.wsmsz.study.system.role.mapper;
+package com.wsmsz.study.system.role.service;
 
 import com.wsmsz.study.system.role.bean.Role;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
-public interface RoleMapper {
+public interface RoleService {
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(Role record);
@@ -19,5 +18,6 @@ public interface RoleMapper {
 
     int updateByPrimaryKey(Role record);
 
-    List<Role>  selectRoleAll(Role role);
+    List<Role> selectRoleAll(Role role);
+
 }
